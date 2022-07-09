@@ -4,10 +4,11 @@ const form = document.querySelector('form')
 const FORM_CURRENT_INPUTS = 'formCurrentInputs';
 
 if (localStorage.getItem(FORM_CURRENT_INPUTS)) {
-     try { obj = JSON.parse(localStorage.getItem(FORM_CURRENT_INPUTS));} 
+     try { obj = JSON.parse(localStorage.getItem(FORM_CURRENT_INPUTS));
+        [...form.elements].filter(el=>el.type!=='submit').map(el=>el.value = obj[el.name])} 
     catch(err) {return err} 
    
-    [...form.elements].filter(el=>el.type!=='submit').map(el=>el.value = obj[el.name])
+    
 }
     
 let inputsObj = []
