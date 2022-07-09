@@ -1,10 +1,11 @@
-import {throttle} from "throttle-debounce"
+import {throttle} from "throttle-debounce";
 
 const form = document.querySelector('form')
+console.log(form)
 const FORM_CURRENT_INPUTS = 'formCurrentInputs';
 
 if (localStorage.getItem(FORM_CURRENT_INPUTS)) {
-     try { obj = JSON.parse(localStorage.getItem(FORM_CURRENT_INPUTS));
+     try { let obj = JSON.parse(localStorage.getItem(FORM_CURRENT_INPUTS));
         [...form.elements].filter(el=>el.type!=='submit').map(el=>el.value = obj[el.name])} 
     catch(err) {return err} 
    
